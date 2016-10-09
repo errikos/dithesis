@@ -178,3 +178,9 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+# MacOS
+**/.DS_Store
+
+# Build directory
+build
