@@ -1,7 +1,7 @@
 # dithesis
 Thesis class for undergraduate theses at the University of Athens
 
-This is version 0.2 of DIthesis, a Latex2e document class for undergraduate theses at the Department of Informatics and Telecommunications, University of Athens.
+This is version 0.3 of DIthesis, a Latex2e document class for undergraduate theses at the Department of Informatics and Telecommunications, University of Athens.
 
 The documentation files also serve as sample theses. You are strongly recommended to use XeLaTeX for compilation, especially if writing in Greek.
 
