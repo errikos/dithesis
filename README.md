@@ -10,3 +10,10 @@ LICENSE: This work may be distributed and/or modified under the conditions of th
 ---
 
 This project was initially developed by [Yannis Mantzouratos](http://www.mantzouratos.net/open-sourced/dithesis) in 2011. This repository contains changes, so that the class conforms to the new thesis standards-requirements.
+
+---
+
+How to use:
+
+  * Make sure you have `dithesis.cls` and your `.tex` (eg. `sample.tex`) file in the same directory.
+  * Compile your `.tex` file with `xelatex`, or use the `latexmk` command, which will build all `.tex` files in the project directory.
