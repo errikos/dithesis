@@ -1,5 +1,5 @@
 %%
-%% dithesis.cls version 0.2
+%% dithesis.cls version 0.3
 %% dithesis - Latex2e document class for undergraduate theses at the Department
 %%            of Informatics and Telecommunications, University of Athens.
 %% Copyright (C) 2011-12 Yannis Mantzouratos <mantzouratos@gmail.com>
