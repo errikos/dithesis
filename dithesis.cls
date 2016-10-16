@@ -171,6 +171,7 @@
 % relative ordering is preserved.
 % \thethesisauthor:        access the author(s) of the thesis, as a list of
 %                          comma-separated values.
+\ifenglish
 \makeatletter % ENGLISH
 \newcommand{\thesisauthorEN}[2]{%
   \ifthenelse{\isundefined{\theauthorsattitlepageEN}}{%
@@ -195,6 +196,7 @@
 }
 \makeatother
 \newcommand{\thethesisauthorEN}{\theauthorsatfootersEN}
+\fi
 
 \makeatletter % GREEK
 \newcommand{\thesisauthorGR}[2]{%
@@ -227,6 +229,7 @@
 %                                Profession (e.g. Professor, PhD Student, etc).
 % for multiple supervisors, just use the \supervisor command multiple times.
 % relative ordering is preserved.
+\ifenglish
 \makeatletter % ENGLISH
 \newcommand{\supervisorEN}[2]{%
   \ifthenelse{\isundefined{\thesupervisorslistEN}}{%
@@ -237,6 +240,7 @@
   }
 }
 \makeatother
+\fi
 
 \makeatletter % GREEK
 \newcommand{\supervisorGR}[2]{%
@@ -250,6 +254,7 @@
 \makeatother
 
 % ENGLISH
+\ifenglish
 \newcommand{\thesupervisorsattitlepageEN}{%
   \begin{table*}[!h]
     \begin{tabular}{l l}
@@ -257,6 +262,7 @@
     \end{tabular}
   \end{table*}
 }
+\fi
 
 % GREEK
 \newcommand{\thesupervisorsattitlepageGR}{%
@@ -268,6 +274,7 @@
 }
 
 % ENGLISH
+\ifenglish
 \newcommand{\thesupervisorsatacceptancepageEN}{%
   \begin{table*}[!h]
     \begin{tabular}{l l}
@@ -275,6 +282,7 @@
     \end{tabular}
   \end{table*}
 }
+\fi
 
 % GREEK
 \newcommand{\thesupervisorsatacceptancepageGR}{%
