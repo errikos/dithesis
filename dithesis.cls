@@ -42,6 +42,8 @@
 %%
 %% CHANGELOG:
 %%
+%% version 0.3:
+%% - Brought up-to-date with 2016 requirements.
 %% version 0.2:
 %% - Fixed pagestyle inconsistencies for multi-page Table of Contents, List of
 %%   Figures, List of Tables, as well as the thesis prologue, acknowledgments,
@@ -56,10 +58,15 @@
 
 %% ============================================================
 \NeedsTeXFormat{LaTeX2e}[2005/12/01]
-\ProvidesClass{dithesis}[2011/09/01 v0.2 DIT.UoA Undergraduate Thesis LaTeX
+\ProvidesClass{dithesis}[2016/10/01 v0.3 DIT.UoA Undergraduate Thesis LaTeX
   document class]
 
 \LoadClass[a4paper,titlepage,oneside,12pt]{article}[2005/09/16]
+\newif\ifenglish
+
+\DeclareOption{english}{\englishtrue}
+\DeclareOption{greek}{\englishfalse}
+\ProcessOptions\relax
 %% ============================================================
 
 %%
@@ -67,7 +74,9 @@
 %%
 % \thesistitle{text}: set the title of thesis to text
 % \thethesistitle:    access the title of thesis later in the document
-\DeclareRobustCommand{\thesistitle}[1]{\title{#1}\let\thethesistitle\thetitle}
+% \DeclareRobustCommand{\thesistitle}[1]{\title{#1}\let\thethesistitle\thetitle}
+\newcommand{\thesistitleEN}{Thesis Title}
+\newcommand{\thesistitleGR}{Τίτλος Πτυχιακής}
 % \thesissection{title}:  set a new numbered section of thesis, with some title
 % \thesissection*{title}: similar to \thesissection, but produces an unnumbered
 %                         section, which will be included in the ToC.
@@ -139,14 +148,22 @@
 % \idlabel:         how to label the ID of the author(s)
 % \thesisplace:     the place where the thesis was deemed successfully completed
 % \thesisdate:      the date when the thesis was successfully completed
-\newcommand{\university}{National and Kapodistrian University of Athens}
-\newcommand{\school}{School of Science}
-\newcommand{\department}{Department of Informatics and Telecommunications}
-\newcommand{\thesislabel}{Thesis}
-\newcommand{\supervisorlabel}{Supervisors}
-\newcommand{\idlabel}{A.M.}
-\newcommand{\thesisplace}{Athens}
-\newcommand{\thesisdate}{September 2011}
+\newcommand{\universityEN}{National and Kapodistrian University of Athens}
+\newcommand{\universityGR}{Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών}
+\newcommand{\schoolEN}{School of Science}
+\newcommand{\schoolGR}{Σχολή Θετικών Επιστημών}
+\newcommand{\departmentEN}{Department of Informatics and Telecommunications}
+\newcommand{\departmentGR}{Τμήμα Πληροφορικής και Τηλεπικοινωνιών}
+\newcommand{\thesislabelEN}{BSc Thesis}
+\newcommand{\thesislabelGR}{Πτυχιακή Εργασία}
+\newcommand{\supervisorlabelEN}{Supervisor}
+\newcommand{\supervisorlabelGR}{Επιβλέπων}
+\newcommand{\idlabelEN}{S.N.}
+\newcommand{\idlabelGR}{Α.Μ.}
+\newcommand{\thesisplaceEN}{Athens}
+\newcommand{\thesisplaceGR}{Αθήνα}
+\newcommand{\thesisdateEN}{September 2011}
+\newcommand{\thesisdateGR}{Σεπτέμβρης 2011}
 
 % \thesisauthor{Name}{ID}: set the author of the thesis; their name is Name and
 %                          their departmental identification number is ID.
@@ -154,64 +171,120 @@
 % relative ordering is preserved.
 % \thethesisauthor:        access the author(s) of the thesis, as a list of
 %                          comma-separated values.
-\makeatletter
-\newcommand{\thesisauthor}[2]{%
-  \ifthenelse{\isundefined{\theauthorsattitlepage}}{%
-    \def\theauthorsattitlepage{#1}
+\makeatletter % ENGLISH
+\newcommand{\thesisauthorEN}[2]{%
+  \ifthenelse{\isundefined{\theauthorsattitlepageEN}}{%
+    \def\theauthorsattitlepageEN{#1}
   }%
   {%
-    \g@addto@macro\theauthorsattitlepage{\\#1}
+    \g@addto@macro\theauthorsattitlepageEN{\\#1}
   }
-  \ifthenelse{\isundefined{\theauthorsatacceptancepage}}{%
-    \def\theauthorsatacceptancepage{\textbf{#1}\\\textbf{\idlabel:} #2}
+  \ifthenelse{\isundefined{\theauthorsatacceptancepageEN}}{%
+    \def\theauthorsatacceptancepageEN{\textbf{#1}\\\textbf{\idlabelEN:} #2}
   }%
   {%
-    \g@addto@macro\theauthorsatacceptancepage{%
-      \\\textbf{#1}\\\textbf{\idlabel:} #2}
+    \g@addto@macro\theauthorsatacceptancepageEN{%
+      \\\textbf{#1}\\\textbf{\idlabelEN:} #2}
   }
-  \ifthenelse{\isundefined{\theauthorsatfooters}}{%
-    \def\theauthorsatfooters{#1}
+  \ifthenelse{\isundefined{\theauthorsatfootersEN}}{%
+    \def\theauthorsatfootersEN{#1}
   }%
   {%
-    \g@addto@macro\theauthorsatfooters{, #1}
+    \g@addto@macro\theauthorsatfootersEN{, #1}
   }
 }
 \makeatother
-\newcommand{\thethesisauthor}{\theauthorsatfooters}
+\newcommand{\thethesisauthorEN}{\theauthorsatfootersEN}
+
+\makeatletter % GREEK
+\newcommand{\thesisauthorGR}[2]{%
+  \ifthenelse{\isundefined{\theauthorsattitlepageGR}}{%
+    \def\theauthorsattitlepageGR{#1}
+  }%
+  {%
+    \g@addto@macro\theauthorsattitlepageGR{\\#1}
+  }
+  \ifthenelse{\isundefined{\theauthorsatacceptancepageGR}}{%
+    \def\theauthorsatacceptancepageGR{\textbf{#1}\\\textbf{\idlabelGR:} #2}
+  }%
+  {%
+    \g@addto@macro\theauthorsatacceptancepageGR{%
+      \\\textbf{#1}\\\textbf{\idlabelGR:} #2}
+  }
+  \ifthenelse{\isundefined{\theauthorsatfootersGR}}{%
+    \def\theauthorsatfootersGR{#1}
+  }%
+  {%
+    \g@addto@macro\theauthorsatfootersGR{, #1}
+  }
+}
+\makeatother
+\newcommand{\thethesisauthorGR}{\theauthorsatfootersGR}
+
 
 % \supervisor{Name}{Profession}: set the supervisor of the thesis; their name is
 %                                Name and their profession is indicated by
 %                                Profession (e.g. Professor, PhD Student, etc).
 % for multiple supervisors, just use the \supervisor command multiple times.
 % relative ordering is preserved.
-\makeatletter
-\newcommand{\supervisor}[2]{%
-  \ifthenelse{\isundefined{\thesupervisorslist}}{%
-    \def\thesupervisorslist{\textbf{#1,} #2}
+\makeatletter % ENGLISH
+\newcommand{\supervisorEN}[2]{%
+  \ifthenelse{\isundefined{\thesupervisorslistEN}}{%
+    \def\thesupervisorslistEN{\textbf{#1,} #2}
   }%
   {%
-    \g@addto@macro\thesupervisorslist{\\&\textbf{#1,} #2}
+    \g@addto@macro\thesupervisorslistEN{\\&\textbf{#1,} #2}
   }
 }
 \makeatother
 
-\newcommand{\thesupervisorsattitlepage}{%
+\makeatletter % GREEK
+\newcommand{\supervisorGR}[2]{%
+  \ifthenelse{\isundefined{\thesupervisorslistGR}}{%
+    \def\thesupervisorslistGR{\textbf{#1,} #2}
+  }%
+  {%
+    \g@addto@macro\thesupervisorslistGR{\\&\textbf{#1,} #2}
+  }
+}
+\makeatother
+
+% ENGLISH
+\newcommand{\thesupervisorsattitlepageEN}{%
   \begin{table*}[!h]
-    \centering
     \begin{tabular}{l l}
-      \textbf{\supervisorlabel:} & \thesupervisorslist \\
+      \textbf{\supervisorlabelEN:} & \thesupervisorslistEN \\
     \end{tabular}
   \end{table*}
 }
 
-\newcommand{\thesupervisorsatacceptancepage}{%
+% GREEK
+\newcommand{\thesupervisorsattitlepageGR}{%
   \begin{table*}[!h]
-    \centering
     \begin{tabular}{l l}
-      \textbf{\MakeUppercase{\supervisorlabel:}} & \thesupervisorslist \\
+      \textbf{\supervisorlabelGR:} & \thesupervisorslistGR \\
     \end{tabular}
   \end{table*}
 }
+
+% ENGLISH
+\newcommand{\thesupervisorsatacceptancepageEN}{%
+  \begin{table*}[!h]
+    \begin{tabular}{l l}
+      \textbf{\MakeUppercase{\supervisorlabelEN:}} & \thesupervisorslistEN \\
+    \end{tabular}
+  \end{table*}
+}
+
+% GREEK
+\newcommand{\thesupervisorsatacceptancepageGR}{%
+  \begin{table*}[!h]
+    \begin{tabular}{l l}
+      \textbf{\MakeUppercase{\supervisorlabelGR:}} & \thesupervisorslistGR \\
+    \end{tabular}
+  \end{table*}
+}
+
 %%
 %% End of User Interface Commands
 %% ============================================================
@@ -243,23 +316,23 @@
                    \fontsize{12pt}{14.4pt}\selectfont\itshape}
                { \end{flushright}\clearpage\pagestyle{fancy}}
 
-\newenvironment{thesisacknowledgments}[1][Acknowledgements]
+\newenvironment{thesisacknowledgments}[1][Acknowledgments]
                { \newpage
                  \pagestyle{empty}
                  \section*{#1}
                  \vspace*{0.3in}}
                {\clearpage\pagestyle{fancy}}
 
-\newenvironment{thesisprologue}[1][Prologue]
+\newenvironment{thesisprologue}[1][Preface]
                { \thesissection*{#1}
                  \pagestyle{empty}}
                {\clearpage\pagestyle{fancy}}
 
-\newenvironment{thesisterminology}[1][Terminology Table]
+\newenvironment{thesisterminology}[1][Table of Terminology]
                { \thesissection*{#1}}
                {}
 
-\newenvironment{thesisabbreviations}[1][Abbreviations, Initials and Acronyms]
+\newenvironment{thesisabbreviations}[1][Abbreviations -- Acronyms]
                { \thesissection*{#1}}
                {}
 
@@ -369,10 +442,18 @@
 \pagestyle{fancy}
 \fancyhead[R]{}
 \fancyhead[C]{}
-\fancyhead[L]{\fontsize{8pt}{9.6pt}\selectfont\thethesistitle}
+\ifenglish
+\fancyhead[L]{\fontsize{8pt}{9.6pt}\selectfont\thesistitleEN}
+\else
+\fancyhead[L]{\fontsize{8pt}{9.6pt}\selectfont\thesistitleGR}
+\fi
 \fancyfoot[R]{\fontsize{10pt}{12pt}\selectfont\thepage}
 \fancyfoot[C]{}
-\fancyfoot[L]{\fontsize{8pt}{9.6pt}\selectfont\theauthorsatfooters}
+\ifenglish
+\fancyfoot[L]{\fontsize{8pt}{9.6pt}\selectfont\theauthorsatfootersEN}
+\else
+\fancyfoot[L]{\fontsize{8pt}{9.6pt}\selectfont\theauthorsatfootersGR}
+\fi
 \renewcommand{\headrulewidth}{0pt}
 %%
 %% End of Headers and Footers of Text Pages
@@ -498,93 +579,252 @@
              {Add athena-black.pdf in the class folder and try again.}
 }
 
-% maketitle modifications (refer to the titling package)
-\setlength{\droptitle}{-204pt}
-\renewcommand{\maketitlehooka}{%
-  \begin{center}
-    \begin{singlespace}
-      \includegraphics[height=2cm]{athena-black.pdf}
-      \vspace*{0.08in}
-
-      {\fontsize{14pt}{16.8pt}\selectfont\bfseries
-        \MakeUppercase{\university}}
-
-      \vspace*{0.08in}
-
-      {\fontsize{12pt}{14.4pt}\selectfont\bfseries
-        \MakeUppercase{\school}} \\
-      {\fontsize{12pt}{14.4pt}\selectfont\bfseries
-        \MakeUppercase{\department}}
-
-      \vspace*{0.82in}
-
-      {\fontsize{12pt}{14.4pt}\selectfont\bfseries
-        \MakeUppercase{\thesislabel}}
-
-      \vspace*{0.25in}
-    \end{singlespace}
-  \end{center}
-}
-
-\pretitle{%
-  \begin{center}
-    \begin{singlespace}
-      \fontsize{16pt}{19.2pt}\selectfont\bfseries}
-\posttitle{\end{singlespace}\end{center}}
-
-\renewcommand{\maketitlehookb}{%
-  \vspace*{0.43in}
-}
-
-\preauthor{%
-  \author{\theauthorsattitlepage}
-  \begin{center}
-    \begin{singlespace}
-      \fontsize{12pt}{14.4pt}\selectfont\bfseries}
-\postauthor{\end{singlespace}\end{center}}
-
-\renewcommand{\maketitlehookc}{%
-  \begin{center}
-    \begin{singlespace}
-      \vspace*{1.49in}
-
-      {\fontsize{12pt}{14.4pt}\selectfont\thesupervisorsattitlepage}
-
-      \vspace*{1.34in}
-
-      {\fontsize{12pt}{14.4pt}\selectfont\bfseries\MakeUppercase{\thesisplace}}
-    \end{singlespace}
-  \end{center}
-}
-
-\predate{%
-  \date{\thesisdate}
-  \begin{center}
-    \fontsize{12pt}{14.4pt}\selectfont\bfseries\MakeUppercase}
-\postdate{\end{center}}
-
-\renewcommand{\maketitlehookd}{%
-  \newpage
-  \thispagestyle{empty}
-  \begin{center}
-    \vspace*{0.56in}
-
-    {\fontsize{12pt}{14.4pt}\selectfont\bfseries\MakeUppercase{\thesislabel}}
-
-    \vspace*{0.36in}
-
-    {\fontsize{12pt}{14.4pt}\selectfont\thethesistitle}
-
-    \vspace*{0.56in}
-    {\fontsize{12pt}{14.4pt}\selectfont\theauthorsatacceptancepage}
-
-    \vspace*{2.76in}
-    {\fontsize{12pt}{14.4pt}\selectfont\thesupervisorsatacceptancepage}
-  \end{center}
-}
-
 \let\oldmaketitle\maketitle
 \renewcommand{\maketitle}{\oldmaketitle\setcounter{page}{3}}
 %%
 %% End of Format of the Title and Acceptance Pages
 %% ============================================================
+\newcommand{\maketitleEN}{%
+  \setlength{\droptitle}{-112pt}
+  \renewcommand{\maketitlehooka}{%
+    \begin{center}
+      \begin{singlespace}
+        \includegraphics[height=2.35cm]{athena-black.pdf}
+        \vspace*{0.28in}
+
+        {\fontsize{14pt}{16.8pt}\selectfont\bfseries
+          \MakeUppercase{\universityEN}}
+
+        \vspace*{0.12in}
+
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries
+          \MakeUppercase{\schoolEN}} \\
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries
+          \MakeUppercase{\departmentEN}}
+
+        \vspace*{0.84in}
+
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries
+          \MakeUppercase{\thesislabelEN}}
+
+        \vspace*{0.25in}
+      \end{singlespace}
+    \end{center}
+  }
+
+  \pretitle{%
+    \begin{center}
+      \begin{singlespace}
+        \fontsize{16pt}{19.2pt}\selectfont\bfseries}
+  \posttitle{\end{singlespace}\end{center}}
+
+  \renewcommand{\maketitlehookb}{%
+    \vspace*{0.48in}
+  }
+
+  \preauthor{%
+    \author{\theauthorsattitlepageEN}
+    \begin{center}
+      \begin{singlespace}
+        \fontsize{12pt}{14.4pt}\selectfont\bfseries}
+  \postauthor{\end{singlespace}\end{center}}
+
+  \renewcommand{\maketitlehookc}{%
+    \begin{center}
+      \begin{singlespace}
+        \vspace*{1.48in}
+
+        {\fontsize{12pt}{14.4pt}\selectfont\thesupervisorsattitlepageEN}
+
+        \vspace*{1.32in}
+
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries\MakeUppercase{\thesisplaceEN}}
+      \end{singlespace}
+    \end{center}
+  }
+
+  \predate{%
+    \date{\thesisdateEN}
+    \begin{center}
+      \fontsize{12pt}{14.4pt}\selectfont\bfseries\MakeUppercase}
+  \postdate{\end{center}}
+
+  \maketitle
+}
+
+\newcommand{\maketitleGR}{%
+  \setlength{\droptitle}{-112pt}
+  \renewcommand{\maketitlehooka}{%
+    \begin{center}
+      \begin{singlespace}
+        \includegraphics[height=2.35cm]{athena-black.pdf}
+        \vspace*{0.28in}
+
+        {\fontsize{14pt}{16.8pt}\selectfont\bfseries
+          \MakeUppercase{\universityGR}}
+
+        \vspace*{0.12in}
+
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries
+          \MakeUppercase{\schoolGR}} \\
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries
+          \MakeUppercase{\departmentGR}}
+
+        \vspace*{0.84in}
+
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries
+          \MakeUppercase{\thesislabelGR}}
+
+        \vspace*{0.25in}
+      \end{singlespace}
+    \end{center}
+  }
+
+  \pretitle{%
+    \begin{center}
+      \begin{singlespace}
+        \fontsize{16pt}{19.2pt}\selectfont\bfseries}
+  \posttitle{\end{singlespace}\end{center}}
+
+  \renewcommand{\maketitlehookb}{%
+    \vspace*{0.48in}
+  }
+
+  \preauthor{%
+    \author{\theauthorsattitlepageGR}
+    \begin{center}
+      \begin{singlespace}
+        \fontsize{12pt}{14.4pt}\selectfont\bfseries}
+  \postauthor{\end{singlespace}\end{center}}
+
+  \renewcommand{\maketitlehookc}{%
+    \begin{center}
+      \begin{singlespace}
+        \vspace*{1.48in}
+
+        {\fontsize{12pt}{14.4pt}\selectfont\thesupervisorsattitlepageGR}
+
+        \vspace*{1.32in}
+
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries\MakeUppercase{\thesisplaceGR}}
+      \end{singlespace}
+    \end{center}
+  }
+
+  \predate{%
+    \date{\thesisdateGR}
+    \begin{center}
+      \fontsize{12pt}{14.4pt}\selectfont\bfseries\MakeUppercase}
+  \postdate{\end{center}}
+
+  \maketitle
+}
+
+\newcommand{\makeacceptanceEN}{%
+  \setlength{\droptitle}{-168pt}
+
+  \renewcommand{\maketitlehooka}{%
+    \begin{center}
+      \begin{singlespace}
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries
+          \MakeUppercase{\thesislabelEN}}
+        \vspace*{0.31in}
+      \end{singlespace}
+    \end{center}
+  }
+
+  \renewcommand{\maketitlehookb}{%
+    \vspace*{0.60in}
+  }
+
+  \preauthor{}
+  \author{}
+  \postauthor{}
+
+  \renewcommand{\maketitlehookc}{%
+    \begin{center}
+      {\fontsize{12pt}{14.4pt}\selectfont\theauthorsatacceptancepageEN}
+    \end{center}
+  }
+
+  \predate{}
+  \date{}
+  \postdate{}
+
+  \renewcommand{\maketitlehookd}{%
+    % \begin{center}
+      \vspace*{2.76in}
+      {\fontsize{12pt}{14.4pt}\selectfont\thesupervisorsatacceptancepageEN}
+    % \end{center}
+  }
+
+  \pretitle{%
+    \begin{center}
+      \begin{singlespace}
+        \fontsize{16pt}{19.2pt}}
+  \posttitle{\end{singlespace}\end{center}}
+
+  \maketitle
+}
+
+\newcommand{\makeacceptanceGR}{%
+  \setlength{\droptitle}{-168pt}
+
+  \renewcommand{\maketitlehooka}{%
+    \begin{center}
+      \begin{singlespace}
+        {\fontsize{12pt}{14.4pt}\selectfont\bfseries
+          \MakeUppercase{\thesislabelGR}}
+        \vspace*{0.31in}
+      \end{singlespace}
+    \end{center}
+  }
+
+  \renewcommand{\maketitlehookb}{%
+    \vspace*{0.60in}
+  }
+
+  \preauthor{}
+  \author{}
+  \postauthor{}
+
+  \renewcommand{\maketitlehookc}{%
+    \begin{center}
+      {\fontsize{12pt}{14.4pt}\selectfont\theauthorsatacceptancepageGR}
+    \end{center}
+  }
+
+  \predate{}
+  \date{}
+  \postdate{}
+
+  \renewcommand{\maketitlehookd}{%
+    % \begin{center}
+      \vspace*{2.76in}
+      {\fontsize{12pt}{14.4pt}\selectfont\thesupervisorsatacceptancepageGR}
+    % \end{center}
+  }
+
+  \pretitle{%
+    \begin{center}
+      \begin{singlespace}
+        \fontsize{16pt}{19.2pt}}
+  \posttitle{\end{singlespace}\end{center}}
+
+  \maketitle
+}
+
+\newcommand{\makethesistitle}{%
+  \ifenglish
+  \title{\thesistitleEN}
+  \maketitleEN
+  \fi
+  \title{\thesistitleGR}
+  \maketitleGR
+  \ifenglish
+  \title{\thesistitleEN}
+  \makeacceptanceEN
+  \fi
+  \title{\thesistitleGR}
+  \makeacceptanceGR
+}

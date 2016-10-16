@@ -27,7 +27,7 @@
 %%
 %% This work conforms to the requirements of the Department of Informatics and
 %% Telecommunications at the University of Athens regarding the preparation of
-%% undergraduate theses, as of Sep 1, 2011.
+%% undergraduate theses, as of Oct 1, 2016.
 %%
 %% This work is distributed in the hope that it will be useful, but WITHOUT ANY
 %% WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
@@ -37,58 +37,63 @@
 %% servicing, repair, or correction.
 %% See the LaTeX Project Public License for more details.
 %%
-%% The latest official Microsoft Word(...) template can be found in
-%% http://www.di.uoa.gr/lib.
+%% The latest official Microsoft Word(...) template can be found in:
+%% http://www.di.uoa.gr/department/thesis
 %%
 
-%% Compiled to PDF with	MikTex (interpreter: XeLaTeX) on a Windows platform
-\documentclass{dithesis}
+%% Compile to PDF with XeLaTeX on any platform.
+\documentclass[english]{dithesis} % Choose between "english" and "greek"
 
 \usepackage{mathspec}
 \usepackage{xgreek}
 \usepackage{xunicode}
 
+\ifenglish
+\renewcommand{\contentsname}{Contents}
+\renewcommand\listfigurename{List Of Figures}
+\renewcommand\listtablename{List Of Tables}
+\fi
+
 \setallmainfonts[Mapping=tex-text]{Arial}
 \setallsansfonts[Mapping=tex-text]{Arial}
 \setallmonofonts[Mapping=tex-text]{Arial}
 
-\renewcommand{\university}{Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών}
-\renewcommand{\school}{Σχολή Θετικών Επιστημών}
-\renewcommand{\department}{Τμήμα Πληροφορικής και Τηλεπικοινωνιών}
+%% Do NOT touch to this point
+%% ============================================================================
 
-\renewcommand{\thesisplace}{Αθήνα}
-\renewcommand{\thesisdate}{Σεπτέμβρης 2011}
+\renewcommand{\thesistitleEN}{The dithesis \LaTeX{} class}
+\renewcommand{\thesistitleGR}{Η κλάσση \LaTeX{} dithesis}
 
-\renewcommand{\thesislabel}{Πτυχιακή Εργασία}
-\renewcommand{\supervisorlabel}{Επιβλέπων}
-\renewcommand{\idlabel}{Α.Μ.}
+\renewcommand{\universityEN}{National and Kapodistrian University of Athens}
+\renewcommand{\universityGR}{Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών}
+\renewcommand{\schoolEN}{School of Science}
+\renewcommand{\schoolGR}{Σχολή Θετικών Επιστημών}
+\renewcommand{\departmentEN}{Department of Informatics and Telecommunications}
+\renewcommand{\departmentGR}{Τμήμα Πληροφορικής και Τηλεπικοινωνιών}
+
+\renewcommand{\thesisplaceEN}{Athens}
+\renewcommand{\thesisplaceGR}{Αθήνα}
+\renewcommand{\thesisdateEN}{September 2011}
+\renewcommand{\thesisdateGR}{Σεπτέμβρης 2011}
+
+\renewcommand{\thesislabelEN}{BSc Thesis}
+\renewcommand{\thesislabelGR}{Πτυχιακή Εργασία}
+\renewcommand{\supervisorlabelEN}{Supervisor}
+\renewcommand{\supervisorlabelGR}{Επιβλέπων}
+\renewcommand{\idlabelEN}{S.N.}
+\renewcommand{\idlabelGR}{Α.Μ.}
 
 \begin{document}
-\thesistitle{Η κλάσση \LaTeX{}  dithesis}
-\thesisauthor{Ιωάννης Π. Μαντζουράτος}{1115200600000}
-\supervisor{Αλέξης Δελής}{Καθηγητής ΕΚΠΑ}
-\maketitle
 
-\begin{thesisabstract}[Περίληψη]
-  Στο παρόν έγγραφο τεκμηριώνεται η κλάσση \LaTeX{} dithesis, που μπορεί να
-  χρησιμοποιηθεί για τη σύνταξη πτυχιακών εργασιών του Τμήματος Πληροφορικής
-  και Τηλεπικοινωνιών του Πανεπιστημίου Αθηνών.
-  Έγινε προσπάθεια η κλάσση να συμβαδίζει απολύτως με τις απαιτήσεις του 
-  Αναγνωστηρίου.
-  H πτυχιακή μου, στην οποία χρησιμοποιήσα την παρούσα κλάσση, έγινε αποδεκτή 
-  από το Αναγνωστήριο το καλοκαίρι του 2011. 
-  
-  \thesiskeywords{Θεματική Περιοχή}{Τεκμηρίωση}
-                 {Λέξεις Κλειδιά}{\LaTeX{}}
-                                 {Κλάσσεις Εγγράφων}
-                                 {Πτυχιακές Εργασίες}
-                                 {Τμήμα Πληροφορικής και Τηλεπικοινωνιών}
-                                 {Πανεπιστήμιο Αθηνών}
-\end{thesisabstract}
+\thesisauthorEN{Ioannis P. Mantzouratos}{1115200600000}
+\thesisauthorGR{Ιωάννης Π. Μαντζουράτος}{1115200600000}
+\supervisorEN{Alexis Delis}{UoA Professor}
+\supervisorGR{Αλέξης Δελής}{Καθηγητής ΕΚΠΑ}
+\makethesistitle
 
-\begin{thesisabstract}[Abstract]
+\begin{thesisabstract}
   In this paper, we provide documentation for the \LaTeX{} document class
-  dithesis, which can be used for preparing undergraduate theses at the 
+  dithesis, which can be used for preparing undergraduate theses at the
   Department of Informatics and Telecommunications, University of Athens.
   The class conforms to all requirements imposed by the Library, as of September
   2011.
@@ -103,57 +108,68 @@
                            {University of Athens}
 \end{thesisabstract}
 
+\begin{thesisabstract}[Περίληψη]
+  Στο παρόν έγγραφο τεκμηριώνεται η κλάσση \LaTeX{} dithesis, που μπορεί να
+  χρησιμοποιηθεί για τη σύνταξη πτυχιακών εργασιών του Τμήματος Πληροφορικής
+  και Τηλεπικοινωνιών του Πανεπιστημίου Αθηνών.
+  Έγινε προσπάθεια η κλάσση να συμβαδίζει απολύτως με τις απαιτήσεις του
+  Αναγνωστηρίου.
+  H πτυχιακή μου, στην οποία χρησιμοποιήσα την παρούσα κλάσση, έγινε αποδεκτή
+  από το Αναγνωστήριο το καλοκαίρι του 2011.
+
+  \thesiskeywords{Θεματική Περιοχή}{Τεκμηρίωση}
+                 {Λέξεις Κλειδιά}{\LaTeX{}}
+                                 {Κλάσσεις Εγγράφων}
+                                 {Πτυχιακές Εργασίες}
+                                 {Τμήμα Πληροφορικής και Τηλεπικοινωνιών}
+                                 {Πανεπιστήμιο Αθηνών}
+\end{thesisabstract}
+
 \begin{thesisdedication}
 Αφιέρωση σε κάποιους.
 \end{thesisdedication}
 
-\begin{thesisacknowledgments}[Ευχαριστίες]
-  Ακολουθεί δείγμα ευχαριστιών.
-
-  Θα ήθελα να ευχαριστήσω τον επιβλέποντα κ. Αλέξη Δελή για τη συνεργασία και τη
-  βοήθεια κατά την εκπόνηση αυτής της πτυχιακής.
-
-  Θα ήθελα επίσης να ευχαριστήσω το φίλο μου Μένιο για τις πολύτιμες
-  παρατηρήσεις του σε προκαταρκτικές εκδόσεις του κειμένου.
+\begin{thesisacknowledgments}
+  In this page you write the aknowlegdments. This page is optional.
 \end{thesisacknowledgments}
 
 \tableofcontents
 \listoffigures
 \listoftables
 
-\begin{thesisprologue}[Πρόλογος]
-  Το παρόν έγγραφο δημιουργήθηκε στην Αθήνα, το 2011, στα πλαίσια της 
+\begin{thesisprologue}
+  Το παρόν έγγραφο δημιουργήθηκε στην Αθήνα, το 2011, στα πλαίσια της
   τεκμηρίωσης της κλάσσης \LaTeX{} dithesis.
-  Η κλάσση αυτή διανέμεται με την ελπίδα ότι θα αποδειχθεί χρήσιμη, παρόλα αυτά 
-  \emph{χωρίς καμιά εγγύηση}: χωρίς ούτε και την σιωπηρή εγγύηση 
+  Η κλάσση αυτή διανέμεται με την ελπίδα ότι θα αποδειχθεί χρήσιμη, παρόλα αυτά
+  \emph{χωρίς καμιά εγγύηση}: χωρίς ούτε και την σιωπηρή εγγύηση
   εμπορευσιμότητας ή καταλληλότητας για συγκεκριμένη χρήση.
-  Για περισσότερες λεπτομέρειες, ανατρέξτε στην άδεια LaTeX Project Public 
+  Για περισσότερες λεπτομέρειες, ανατρέξτε στην άδεια LaTeX Project Public
   License.
 \end{thesisprologue}
 
-\thesissection{Εισαγωγή}
+\thesissection{Introduction}
 Το παρόν έγγραφο τεκμηριώνει την ανεπίσημη κλάσση \LaTeX{} dithesis, την οποία
 μπορεί κανείς να χρησιμοποιήσει για να συντάξει την πτυχιακή του εργασία
 σύμφωνα με τις απαιτήσεις του Τμήματος Πληροφορικής και Τηλεπικοινωνιών του
 Πανεπιστημίου Αθηνών.
 Η κλάσση αυτή προσπαθεί να καλύψει ένα σημαντικό κενό, μιας και το Αναγνωστήριο
-Πληροφορικής και Τηλεπικοινωνιών προσφέρει πρότυπα πτυχιακών εργασιών μόνο σε 
+Πληροφορικής και Τηλεπικοινωνιών προσφέρει πρότυπα πτυχιακών εργασιών μόνο σε
 Microsoft Word \cite{Anagnostirio}.
 
-Η παρουσίαση των εντολών (commands) και των περιβαλλόντων (environments) που 
+Η παρουσίαση των εντολών (commands) και των περιβαλλόντων (environments) που
 προσφέρει η dithesis ακολουθεί μια λογική σειρά, δηλαδή πρώτα παρουσιάζονται οι
- εντολές -- περιβάλλοντα για τις σελίδες τίτλου και αποδοχής, ύστερα για τις 
-περιλήψεις, τις αφιερώσεις και τις ευχαριστίες, κατόπιν για τα περιεχόμενα, 
+ εντολές -- περιβάλλοντα για τις σελίδες τίτλου και αποδοχής, ύστερα για τις
+περιλήψεις, τις αφιερώσεις και τις ευχαριστίες, κατόπιν για τα περιεχόμενα,
 κ.ο.κ.
 Όλες οι εντολές και τα περιβάλλοντα χρησιμοποιούνται μετά την αρχή του
 εγγράφου (\textbackslash{begin}\{document\}), εκτός όπου αναφέρεται κάτι
 διαφορετικό.
 
-H πτυχιακή μου, στην οποία χρησιμοποιήσα την παρούσα κλάσση, έγινε αποδεκτή 
+H πτυχιακή μου, στην οποία χρησιμοποιήσα την παρούσα κλάσση, έγινε αποδεκτή
 από το Αναγνωστήριο το καλοκαίρι του 2011.
 
 \thesissection{Σελίδα Τίτλου και Σελίδα Αποδοχής}
-Σε αυτή την ενότητα παρουσιάζονται οι εντολές που σχετίζονται με τις σελίδες 
+Σε αυτή την ενότητα παρουσιάζονται οι εντολές που σχετίζονται με τις σελίδες
 τίτλου και αποδοχής.
 Πρώτα παρουσιάζονται οι εντολές παροχής πληροφοριών και στη συνέχεια οι εντολές
 παροχής πρόσβασης σε πληροφορίες.
@@ -168,15 +184,15 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 στο preamble της εργασίας σας.
 \begin{description}
 \item[\textbackslash{university}]
-  Το όνομα του Πανεπιστημίου. 
+  Το όνομα του Πανεπιστημίου.
   Για πτυχιακές εργασίες πρέπει να είναι ``Εθνικό και Καποδιστριακό
-  Πανεπιστήμιο Αθηνών''. 
+  Πανεπιστήμιο Αθηνών''.
 \item[\textbackslash{school}]
   Το όνομα της Σχολής.
   Για πτυχιακές εργασίες πρέπει να είναι ``Σχολή Θετικών Επιστημών''.
 \item[\textbackslash{department}]
   Το όνομα του Τμήματος.
-  Για πτυχιακές εργασίες πρέπει να είναι ``Τμήμα Πληροφορικής και 
+  Για πτυχιακές εργασίες πρέπει να είναι ``Τμήμα Πληροφορικής και
   Τηλεπικοινωνιών''.
 \item[\textbackslash{thesislabel}]
   Το είδος της εργασίας.
@@ -198,7 +214,7 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 \end{description}
 
 Παραδείγματος χάριν, για να θέσουμε την ημερομηνία εξέτασης σε ``Σεπτέμβριος
-2011'', βάζουμε στο preamble της εργασίας 
+2011'', βάζουμε στο preamble της εργασίας
 \textbackslash{renewcommand}\{\textbackslash{thesisdate}\}\{Σεπτέμβριος 2011\}.
 %%%%%%%%%%
 \thesissubsubsection{Εντολές με Ορίσματα}
@@ -207,7 +223,7 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 δοθεί η εντολή δημιουργίας των σελίδων τίτλου και αποδοχής.
 \begin{description}
 \item[\textbackslash{thesistitle}]
-  Η εντολή \textbackslash{thesistitle}\{\textit{title}\} παίρνει ένα 
+  Η εντολή \textbackslash{thesistitle}\{\textit{title}\} παίρνει ένα
   υποχρεωτικό όρισμα \textit{title}, το οποίο θέτει τον τίτλο της εργασίας.
   Για παράδειγμα, στην παρούσα εργασία χρησιμοποιήσαμε
   \textbackslash{thesistitle}\{Η κλάσση \textbackslash{LaTeX}\{\} dithesis\}.
@@ -219,12 +235,12 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
   Για πολλαπλούς συγγραφείς, απλά χρησιμοποιείστε την εντολή επανειλημμένα.
   Για παράδειγμα, στην παρούσα εργασία χρησιμοποιήσαμε
   \textbackslash{thesisauthor}\{Ιωάννης Π. Μαντζουράτος\}\{1115200600000\}.
-  Εαν θέλαμε να συμπεριλάβουμε και δεύτερο συγγραφέα, θα προσθέταμε την εντολή 
+  Εαν θέλαμε να συμπεριλάβουμε και δεύτερο συγγραφέα, θα προσθέταμε την εντολή
   \textbackslash{thesisauthor}\{Όν. Π. Επώνυμο\}\{1115200700000\}, κ.ο.κ.
   Οι συγγραφείς θα εμφανιστούν στις σελίδες τίτλου και αποδοχής με τη σειρά
   που συναντώνται οι εντολές \textbackslash{thesisauthor}.
 \item[\textbackslash{supervisor}]
-  Η εντολή \textbackslash{supervisor}\{\textit{name}\}\{\textit{profession}\} 
+  Η εντολή \textbackslash{supervisor}\{\textit{name}\}\{\textit{profession}\}
   παίρνει δύο υποχρεωτικά ορίσματα, που καθορίζουν τα στοιχεία του επιβλέποντα
   της εργασίας.
   Το \textit{name} καθορίζει το όνομα, ενώ το \textit{profession} τη θέση του,
@@ -232,16 +248,16 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
   Για πολλαπλούς επιβλέποντες, απλά χρησιμοποιείστε την εντολή επανειλημμένα.
   Παραδείγματος χάριν, στην παρούσα εργασία δώσαμε
   \textbackslash{supervisor}\{Αλέξης Δελής\}\{Καθηγητής ΕΚΠΑ\}.
-  Εαν θέλαμε να συμπεριλάβουμε και δεύτερο επιβλέποντα, θα προσθέταμε την 
-  εντολή \textbackslash{supervisor}\{Όνομα Επώνυμο\}\{Επίκουρος Καθηγητής\}, 
+  Εαν θέλαμε να συμπεριλάβουμε και δεύτερο επιβλέποντα, θα προσθέταμε την
+  εντολή \textbackslash{supervisor}\{Όνομα Επώνυμο\}\{Επίκουρος Καθηγητής\},
   κ.ο.κ.
   Οι επιβλέποντες θα εμφανιστούν στις σελίδες τίτλου και αποδοχής με τη σειρά
   που συναντώνται οι εντολές \textbackslash{supervisor}.
 \end{description}
 %%%%%%%%%%
 \thesissubsection{Εντολές Πρόσβασης σε Πληροφορίες}
-Οι ακόλουθες σταθερές εντολές παρέχονται ώστε να δώσουν πρόσβαση σε μερικές 
-πληροφορίες από τις σελίδες τίτλου και αποδοχής που ίσως χρειαστούν στο χρήστη 
+Οι ακόλουθες σταθερές εντολές παρέχονται ώστε να δώσουν πρόσβαση σε μερικές
+πληροφορίες από τις σελίδες τίτλου και αποδοχής που ίσως χρειαστούν στο χρήστη
 αργότερα.
 \begin{description}
 \item[\textbackslash{thethesistitle}]
@@ -254,14 +270,14 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 απλά γράφετε \textbackslash{thethesistitle}.
 
 \thesissection{Περιλήψεις και Λέξεις Κλειδιά}
-Σε αυτή την ενότητα παρουσιάζονται τα περιβάλλοντα και οι εντολές που 
+Σε αυτή την ενότητα παρουσιάζονται τα περιβάλλοντα και οι εντολές που
 σχετίζονται με τις περιλήψεις και τις λέξεις κλειδιά.
 %%%%%%%%%%
 \thesissubsection{Περιλήψεις}
 Για τη συγγραφή περιλήψεων παρέχεται ένα νέο περιβάλλον:
 \begin{description}
 \item[thesisabstract]
-  Το περιβάλλον thesisabstract παίρνει ένα προαιρετικό όρισμα, το οποίο 
+  Το περιβάλλον thesisabstract παίρνει ένα προαιρετικό όρισμα, το οποίο
   καθορίζει την επικεφαλίδα της περίληψης.
   Εαν δε δοθεί όρισμα, χρησιμοποιείται η επικεφαλίδα που καθορίζεται από
   την εντολή \textbackslash{abstractname}.
@@ -305,7 +321,7 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 Για τις ευχαριστίες παρέχεται ένα νέο περιβάλλον:
 \begin{description}
 \item[thesisacknowledgments]
-  Το περιβάλλον thesisacknowledgments παίρνει ένα προαιρετικό όρισμα, το οποίο 
+  Το περιβάλλον thesisacknowledgments παίρνει ένα προαιρετικό όρισμα, το οποίο
   καθορίζει την επικεφαλίδα των ευχαριστιών.
   Εαν δε δοθεί όρισμα, χρησιμοποιείται η επικεφαλίδα ``Acknowledgments''.
   Παραδείγματος χάριν, στην παρούσα εργασία δώσαμε
@@ -326,11 +342,11 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 \end{description}
 
 Αν για κάποιο λόγο πρέπει να αλλάξετε κάποια από τις επικεφαλίδες, μπορείτε να
-κάνετε \textbackslash{renewcommand} στο preamble τα 
-\textbackslash{contentsname}, \textbackslash{listfigurename} και 
+κάνετε \textbackslash{renewcommand} στο preamble τα
+\textbackslash{contentsname}, \textbackslash{listfigurename} και
 \textbackslash{listtablename}, αντίστοιχα.
 Για παράδειγμα, μπορείτε να αλλάξετε την επικεφαλίδα ``Κατάλογος Σχημάτων'' σε
-``Κατάλογος Εικόνων'' με την εντολή 
+``Κατάλογος Εικόνων'' με την εντολή
 \textbackslash{renewcommand}\{\textbackslash{listfigurename}\}\{Κατάλογος
 Εικόνων\}.
 Όμοια, εαν θέλετε να αλλάξετε τις ετικέττες των σχημάτων ή των πινάκων, μπορείτε
@@ -341,29 +357,29 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 Για τον πρόλογο παρέχεται ένα νέο περιβάλλον:
 \begin{description}
 \item[thesisprologue]
-  Το περιβάλλον thesisprologue παίρνει ένα προαιρετικό όρισμα, το οποίο 
+  Το περιβάλλον thesisprologue παίρνει ένα προαιρετικό όρισμα, το οποίο
   καθορίζει την επικεφαλίδα του προλόγου.
-  Εαν δε δοθεί όρισμα, χρησιμοποιείται η επικεφαλίδα ``Prologue''.
+  Εαν δε δοθεί όρισμα, χρησιμοποιείται η επικεφαλίδα ``Preface''.
   Παραδείγματος χάριν, στην παρούσα εργασία δώσαμε την εντολή
   \textbackslash{begin}\{thesisprologue\}{[Πρόλογος]}.
 \end{description}
 
 \thesissection{Ενότητες, Υποενότητες και Υπο-υπoενότητες}
-Για την οργάνωση του κυρίως κειμένου σε ενότητες, υποενότητες και 
+Για την οργάνωση του κυρίως κειμένου σε ενότητες, υποενότητες και
 υπο-υποενότητες παρέχονται τρεις εντολές:
 \begin{description}
 \item[\textbackslash{thesissection}]
-  Η εντολή \textbackslash{thesissection}\{\textit{title}\} παίρνει ένα 
+  Η εντολή \textbackslash{thesissection}\{\textit{title}\} παίρνει ένα
   υποχρεωτικό όρισμα που καθορίζει τον τίτλο της ενότητας.
   Για παράδειγμα, μια νέα ενότητα μπορεί να δημιουργηθεί με την εντολή
   \textbackslash{thesissection}\{Ενότητα Tάδε\}.
 \item[\textbackslash{thesissubsection}]
-  Η εντολή \textbackslash{thesissubsection}\{\textit{title}\} παίρνει ένα 
+  Η εντολή \textbackslash{thesissubsection}\{\textit{title}\} παίρνει ένα
   υποχρεωτικό όρισμα που καθορίζει τον τίτλο της υποενότητας.
   Για παράδειγμα, μια νέα υποενότητα μπορεί να δημιουργηθεί με την εντολή
   \textbackslash{thesissubsection}\{Υποενότητα Tάδε\}.
 \item[\textbackslash{thesissubsubsection}]
-  Η εντολή \textbackslash{thesissubsubsection}\{\textit{title}\} παίρνει ένα 
+  Η εντολή \textbackslash{thesissubsubsection}\{\textit{title}\} παίρνει ένα
   υποχρεωτικό όρισμα που καθορίζει τον τίτλο της υπο-υποενότητας.
   Π.χ., μια νέα υπο-υποενότητα μπορεί να δημιουργηθεί με την εντολή
   \textbackslash{thesissubsubsection}\{Υπο-υποενότητα Tάδε\}.
@@ -379,7 +395,7 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 Για τη δημιουργία της ενότητας της ορολογίας παρέχεται ένα νέο περιβάλλον:
 \begin{description}
 \item[thesisterminology]
-  Το περιβάλλον thesisterminology παίρνει ένα προαιρετικό όρισμα, το οποίο 
+  Το περιβάλλον thesisterminology παίρνει ένα προαιρετικό όρισμα, το οποίο
   καθορίζει την επικεφαλίδα της ενότητας της ορολογίας.
   Εαν δε δοθεί όρισμα, χρησιμοποιείται η επικεφαλίδα ``Table of Terminology''.
   Π.χ., στην παρούσα εργασία δώσαμε την εντολή
@@ -390,10 +406,9 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 Για τη δημιουργία της ενότητας των ακρωνυμίων παρέχεται ένα νέο περιβάλλον:
 \begin{description}
 \item[thesisabbreviations]
-  Το περιβάλλον thesisabbreviations παίρνει ένα προαιρετικό όρισμα, το οποίο 
+  Το περιβάλλον thesisabbreviations παίρνει ένα προαιρετικό όρισμα, το οποίο
   καθορίζει την επικεφαλίδα της ενότητας των ακρωνυμίων.
-  Εαν δε δοθεί όρισμα, χρησιμοποιείται η επικεφαλίδα ``Abbreviations, Initials
-  and Acronyms''.
+  Εαν δε δοθεί όρισμα, χρησιμοποιείται η επικεφαλίδα ``Abbreviations -- Acronyms''.
   Π.χ., στην παρούσα εργασία δώσαμε την εντολή
   \textbackslash{begin}\{thesisabbreviations\}{[Συντμήσεις, Αρκτικόλεξα και
   Ακρωνύμια]}.
@@ -414,7 +429,7 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
   \textbackslash{begin}\{thesisbibliography\}{[Αναφορές]}\{99\}.
 \end{description}
 
-Για τη δημιουργία των αναφορών μέσα στο περιβάλλον της βιβλιογραφίας 
+Για τη δημιουργία των αναφορών μέσα στο περιβάλλον της βιβλιογραφίας
 χρησιμοποιείστε την εντολή \textbackslash{bibitem}\{\textit{reference id}\} και
 στη συνέχεια δώστε το κυρίως κείμενο της αναφοράς.
 Για να αναφερθείτε σε κάποια συγκεκριμένη βιβλιογραφική αναφορά στο κείμενο
@@ -426,7 +441,7 @@ H πτυχιακή μου, στην οποία χρησιμοποιήσα την
 Το Αναγνωστήριο απαιτεί να χρησιμοποιηθεί η γραμματοσειρά Arial στην πτυχιακή,
 η οποία όμως δεν είναι από default εγκατεστημένη σε Linux διανομές.
 Προσωπικά, νομίζω πως ο πιο εύκολος τρόπος για να φορμάρετε την πτυχιακή σε
-Arial είναι να κάνετε το τελικό compilation σε Windows με το MikTex 
+Arial είναι να κάνετε το τελικό compilation σε Windows με το MikTex
 \cite{Miktex}.
 Χρησιμοποιείστε τον interpreter XeLaTeX, και προσθέστε τις παρακάτω
 εντολές στο preamble:
@@ -441,10 +456,10 @@ Arial είναι να κάνετε το τελικό compilation σε Windows μ
   \textbackslash{setallmonofonts}{[Mapping=tex-text]}\{Arial\}
 \end{enumerate}
 
-Σημειώνεται ότι το MikTex θα εντοπίσει και θα εγκαταστήσει αυτόματα όσα πακέτα 
+Σημειώνεται ότι το MikTex θα εντοπίσει και θα εγκαταστήσει αυτόματα όσα πακέτα
 λείπουν.
 
-\begin{thesisterminology}[Πίνακας Ορολογίας]
+\begin{thesisterminology}
 Ακολουθεί δείγμα πίνακα ορολογίας.
 
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -459,7 +474,7 @@ Arial είναι να κάνετε το τελικό compilation σε Windows μ
 
 \end{thesisterminology}
 
-\begin{thesisabbreviations}[Συντμήσεις, Αρκτικόλεξα και Ακρωνύμια]
+\begin{thesisabbreviations}
 Ακολουθεί δείγμα συντμήσεων, αρκτικολέξων και ακρωνυμίων.
 
 \begin{tabularx}{\textwidth}{|X|X|}
@@ -470,7 +485,7 @@ Arial είναι να κάνετε το τελικό compilation σε Windows μ
 
 \end{thesisabbreviations}
 
-\begin{thesisbibliography}[Αναφορές]{99}
+\begin{thesisbibliography}{99}
 \bibitem{Anagnostirio}
   ``Ypodeigmata.Ergasion.zip,''
   \textit{Βιβλιοθήκη Θετικών Επιστημών -- Αναγνωστήριο Πληροφορικής,}.
