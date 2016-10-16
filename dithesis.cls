@@ -580,7 +580,12 @@
 }
 
 \let\oldmaketitle\maketitle
+\ifenglish
+\renewcommand{\maketitle}{\oldmaketitle\setcounter{page}{5}}
+\else
 \renewcommand{\maketitle}{\oldmaketitle\setcounter{page}{3}}
+\fi
+
 %%
 %% End of Format of the Title and Acceptance Pages
 %% ============================================================
