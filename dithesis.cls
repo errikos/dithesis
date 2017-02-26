@@ -160,6 +160,7 @@ includehead,includefoot]{geometry} % add option showframe=true for debugging
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \usepackage{polyglossia}
+\newfontfamily\greekfont[Script=Greek]{Arial}
 \setdefaultlanguage[variant=uk]{english}
 \setotherlanguage{greek}
 
