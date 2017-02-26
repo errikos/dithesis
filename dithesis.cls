@@ -159,6 +159,9 @@ includehead,includefoot]{geometry} % add option showframe=true for debugging
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{xltxtra}
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=uk]{english}
+\setotherlanguage{greek}
 
 %
 % Set font mamily Aria
