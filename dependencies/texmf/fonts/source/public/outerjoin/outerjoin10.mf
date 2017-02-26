@@ -1,0 +1,78 @@
+% This file was largely modified from lasy.mf and lasy10.mf
+% by Scott Pakin <pa...@uiuc.edu> and Anonymous.
+
+if unknown cmbase: input cmbase fi
+def generate suffix t= enddef;
+input cmsy10;
+
+font_identifier:="OUTERJOIN";
+font_coding_scheme:="Outer-join symbols";
+
+% Here we steal a bit from mathsy
+
+mode_setup; font_setup;
+autorounding:=0;
+
+font_slant slant; font_x_height x_height#;
+font_quad 18u# if not monospace:+4letter_fit# fi;
+slant:=mono_charic#:=0;  % the remaining characters will not be slanted
+currenttransform:=identity yscaled aspect_ratio scaled granularity;
+
+cmchar "Left outer-join operator";
+beginchar(oct"061",18u#,v_center(7u#));
+italcorr math_axis#*slant;
+adjust_fit(0,0); pickup rule.nib;
+numeric a; a=round(1.1*math_axis);
+x1=x4=good.x 6u; x2=x3=x1+10u;
+x5=x6=x1-5u;
+y1=y2=y5=good.y(.5(cap_height-2a)); y3=y4=y6=y1+2a;
+draw z1--z3--z2--z4--cycle;
+draw z1--z5;
+draw z4--z6;
+labels(1,2,3,4,5,6); endchar;
+
+cmchar "Right outer-join operator";
+beginchar(oct"062",18u#,v_center(7u#));
+italcorr math_axis#*slant;
+adjust_fit(0,0); pickup rule.nib;
+numeric a; a=round(1.1*math_axis);
+x1=x4=good.x 1.5u; x2=x3=x1+10u;
+x5=x6=x2+5u;
+y1=y2=y5=good.y(.5(cap_height-2a)); y3=y4=y6=y1+2a;
+draw z1--z3--z2--z4--cycle;
+draw z2--z5;
+draw z3--z6;
+labels(1,2,3,4,5,6); endchar;
+
+cmchar "Full outer-join operator";
+beginchar(oct"063",23u#,v_center(7u#));
+italcorr math_axis#*slant;
+adjust_fit(0,0); pickup rule.nib;
+numeric a; a=round(1.1*math_axis);
+x1=x4=good.x 6u; x2=x3=x1+10u;
+x5=x6=x1-5u; x7=x8=x2+5u;
+y1=y2=y5=y7=good.y(.5(cap_height-2a)); y3=y4=y6=y8=y1+2a;
+draw z1--z3--z2--z4--cycle;
+draw z1--z5;
+draw z4--z6;
+draw z2--z7;
+draw z3--z8;
+labels(1,2,3,4,5,6,7,8); endchar; 
+
+cmchar "CSQL intersection operator";
+beginchar(oct"064",23u#,v_center(7u#));
+italcorr math_axis#*slant;
+adjust_fit(0,0); pickup rule.nib;
+numeric a; a=round(1.1*math_axis);
+x1=x4=good.x 6u; x2=x3=x1+10u;
+x5=x6=x1-5u; x7=x8=x2+5u;
+y1=y2=y5=y7=good.y(.5(cap_height-2a)); y3=y4=y6=y8=y1+2a;
+draw z1--z3--z2--z4--cycle;
+draw z1--z5;
+draw z4--z6;
+draw z2--z7;
+draw z3--z8;
+labels(1,2,3,4,5,6,7,8); endchar; 
+
+
+bye. 

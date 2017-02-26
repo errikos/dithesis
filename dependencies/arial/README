@@ -1,0 +1,11 @@
+If the Arial font family is not installed in your system, copy the font
+directory under your home directory and make it hidden. That is, simply
+execute the following command.
+
+	mv fonts ${HOME}/.fonts
+
+Alternatively, if you are working in Linux, installing the package 
+`msttcorefonts` will provide you with the Arial TrueType font family. In
+Ubuntu, you may install them with the following command:
+	sudo apt-get install ttf-mscorefonts-installer
+

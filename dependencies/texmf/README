@@ -1,0 +1,28 @@
+Instructions on installing the outerjoin symbol. You probably do not need the
+outerjoin symbol, so you can skip the following instructions.
+
+1. Copy this directory to your HOME directory.
+	cp -r texmf ~/
+
+   If you want to change this directory, i.e., to make it hidden, then follow
+   the following steps:
+     a. Update the TEXMFHOME variable in the file `texmf.cnf'. To find this file
+        simply execute the following command:
+		locate texmf.cnf
+
+        In Linux, it should be under directory /etc.
+   
+        Variable TEXMFHOME should be assigned the value `~/.texmf'.
+
+     b. Make sure that the TeX distribution is aware of the changes by checking
+        whether the output of the following command.
+		kpsewhich -var-value TEXMFHOME
+
+     c. After doing this, run the following command:
+		texhash ~/.texmf
+
+Useful links:
+ - http://tex.stackexchange.com/a/78806 (for kpsewhich)
+ - http://tug.ctan.org/tds/tds.html#Fonts (for the font directory structure of PK files)
+ - http://www.ntg.nl/maps/29/13.pdf (for the font directory structure in general)
+

@@ -1,0 +1,167 @@
+% demo.tex
+%
+% Enjoy, evolve, and share!
+%
+% Compile it as follows:
+%   latexmk
+%
+% Check file `dithesis.cls' for other configuration options.
+%
+\documentclass[inscr,ack,preface]{dithesis}
+
+%\usepackage{graphicx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% User-specific package inclusions %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{booktabs}
+\usepackage{hyperref}
+\hypersetup{
+    unicode=true,                     % non-Latin characters in bookmarks
+    pdffitwindow=true,                % page fit to window when opened
+    pdfnewwindow=true,                % links in new window
+    pdfkeywords={},                   % list of keywords
+    colorlinks=true,                  % false: boxed links; true: colored links
+    linkcolor=black,                  % color of internal links
+    citecolor=black,                  % color of links to bibliography
+    filecolor=black,                  % color of file links
+    urlcolor=black,                   % color of external links
+    pdftitle={},                      % title
+    pdfauthor={},                     % author
+    pdfsubject={}                     % subject of the document
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% User-specific package inclusions %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% User-specific configuration %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% User-specific configuration %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Required Metadata %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% First name, last name
+%
+\authorFirstGr{Όνομα}
+\authorFirstAbrGr{Ο.} % abbreviation of first name
+\authorMiddleGr{Σ.}   % abbreviation of father's first name
+\authorLastGr{Επίθετο}
+\authorFirstEn{Onoma}
+\authorFirstAbrEn{O.}
+\authorMiddleEn{S.}
+\authorLastEn{Epitheto}
+\authorSn{1115000000000}
+
+%
+% The title of the thesis
+%
+\titleEn{BSc thesis title in English}
+\titleGr{Τίτλος της πτυχιακής εργασίας στα Ελληνικά}
+
+%
+% Month followed by Year
+%
+\dateGr{ΜΑΪΟΣ 2010}
+\dateEn{MAY 2010}
+
+%
+% Supervisor(s) info
+%
+\supervisorGr{Όνομα Επώνυμο}{Βαθμίδα}
+\supervisorEn{Name Surname}{Rank}
+
+%
+% Abstract, synopsis, inscription, ack, and preface pages.
+%
+\abstractEn{Abstract in English here.}
+\abstractGr{Η περίληψη στα Ελληνικά.}
+\acksEn{
+  Acknowledgments in English...
+}
+\prefaceEn{
+  Preface in English...
+}
+
+\inscriptionEn{\emph{To my dear person.}}
+
+%
+% Subject area and keywords
+%
+\subjectAreaGr{Θεματική Περιοχή}
+\subjectAreaEn{Subject Area}
+\keywordsGr{Λέξη κλειδί1, λέξη κλειδί2, λέξη κλειδί3}
+\keywordsEn{Keyword1, keyword2, keyword3}
+
+%
+% Set the .bib file containing your paper publications (leave the extension out)
+%
+% This is optional, but it should be specified when option 'lop' is passed to
+% the document class.
+%
+% Then, inside the document environment, you may use the command '\nocitelop' to
+% site your papers, as you would traditionally do with the commands '\cite' or
+% '\nocite'.
+%
+% The papers are printed in reverse chronological order.
+%
+%\lopfile{mypapers/pubs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Required Metadata %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\frontmatter
+
+\mainmatter
+
+% add main chapters (should be given in capital letters)
+\chapter{INTRODUCTION}
+\chapter{BACKGROUND AND RELATED WORK}
+\chapter{ANOTHER CHAPTER}
+\chapter{CONCLUSIONS AND FUTURE WORK}
+
+\backmatter
+
+% abbreviations table
+\abbreviations
+\begin{center}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{longtable}{ l @{\qquad} l }
+	\toprule
+	RDF    & Resource Description Framework \\
+	SPARQL & SPARQL Protocol and RDF Query Language \\
+	OWL    & Web Ontology Language \\
+	OGC    & Open Geospatial Consortium \\
+	\bottomrule
+	\end{longtable}
+\end{center}
+
+% appendix
+\begin{appendix}
+% mark the beginning of the appendix
+\appendixstartedtrue
+
+% add appendix line to ToC
+\phantomsection
+\addcontentsline{toc}{chapter}{APPENDICES}
+
+\chapter{FIRST APPENDIX}
+\chapter{SECOND APPENDIX}
+\chapter{THIRD APPENDIX}
+\end{appendix}
+
+% manually include the bibliography
+\bibliographystyle{plain}
+\bibliography{references}
+% include it also in ToC (do sth on your own)
+\addcontentsline{toc}{chapter}{REFERENCES}
+
+\end{document}
