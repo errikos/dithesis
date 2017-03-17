@@ -649,16 +649,16 @@ publications}\gdef\@lopfileinternal{#1}}
 %\pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LEO]{{\footnotesize \@titleEn{}}}
-\fancyfoot[C]{{\footnotesize \thepage}}
-\fancyfoot[LE,RO]{{\footnotesize \@authorFirstAbrEn{} \@authorLastEn{}}}
+\fancyfoot[R]{{\footnotesize \thepage}}
+\fancyfoot[LE,LO]{{\footnotesize \@authorFirstAbrEn{} \@authorLastEn{}}}
 
 % needed redefinition, because commands like \chapter call
 % \thispagestyle{plain} automatically
 \fancypagestyle{plain} {
   \fancyhf{}
   \fancyhead[LO]{{\footnotesize \@titleEn{}}}
-  \fancyfoot[C]{{\footnotesize \thepage}}
-  \fancyfoot[LE,RO]{{\footnotesize \@authorFirstAbrEn{} \@authorLastEn{}}}
+  \fancyfoot[R]{{\footnotesize \thepage}}
+  \fancyfoot[LE,LO]{{\footnotesize \@authorFirstAbrEn{} \@authorLastEn{}}}
 }
 \renewcommand{\headrulewidth}{0pt}
 
