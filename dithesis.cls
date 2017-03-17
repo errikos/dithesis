@@ -148,7 +148,6 @@ includehead,includefoot]{geometry} % add option showframe=true for debugging
 \RequirePackage{tabularx}  % needed for tabular* environment
 \RequirePackage{longtable} % needed for splitting big tables across pages
 \RequirePackage{xifthen}
-\RequirePackage[onehalfspacing]{setspace}
 
 %(e.g., abbreviations)
 %\RequirePackage[toc,page,titletoc]{appendix} % needed for configuring
@@ -642,6 +641,11 @@ publications}\gdef\@lopfileinternal{#1}}
 % Paragraph spacing should be
 %
 \setlength{\parskip}{6pt}
+
+%
+% Line spacing should be one line
+%
+\linespread{1}
 
 %
 % Configure header and footer
