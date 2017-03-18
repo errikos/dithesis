@@ -179,6 +179,9 @@ headsep=0.5cm,footskip=0.75cm,
 %\fi
 %\makeglossaries
 
+\providecommand{\grnumm}[1]{#1\textsuperscript{ο}}
+\providecommand{\grnumf}[1]{#1\textsuperscript{η}}
+
 %
 % Commands for first, middle, and last name (greek and english versions)
 %
