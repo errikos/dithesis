@@ -135,8 +135,8 @@ National and Kapodistrian University of Athens]
 %
 \RequirePackage[a4paper,
 top=2cm,bottom=2cm,bindingoffset=0.5cm,left=2cm,right=2cm,
-headheight=15pt,headsep=1.25cm,footskip=1.25cm,
-includehead,includefoot]{geometry} % add option showframe=true for debugging
+headsep=0.5cm,footskip=0.75cm,
+]{geometry} % add option showframe=true for debugging
 \RequirePackage{fancyhdr}
 \RequirePackage[final]{graphicx}
 \RequirePackage{sectsty}   % needed for formatting chapter headings
@@ -301,7 +301,7 @@ publications}\gdef\@lopfileinternal{#1}}
       	ΣΧΟΛΗ ΘΕΤΙΚΩΝ ΕΠΙΣΤΗΜΩΝ \\ ΤΜΗΜΑ  ΠΛΗΡΟΦΟΡΙΚΗΣ ΚΑΙ ΤΗΛΕΠΙΚΟΙΝΩΝΙΩΝ
       \fi
       }
-      \linebreak\linebreak\linebreak\linebreak
+      \linebreak\linebreak\linebreak\linebreak\linebreak
 
       {\bfseries
       \ifenglishfrontpage
@@ -325,6 +325,7 @@ publications}\gdef\@lopfileinternal{#1}}
 	    \else
 	  	  \@authorFirstGr{} \@authorMiddleGr{} \@authorLastGr
 	    \fi}
+      \linebreak\linebreak\linebreak
       \linebreak\linebreak\linebreak
       \linebreak\linebreak
     \end{center}
@@ -364,6 +365,7 @@ publications}\gdef\@lopfileinternal{#1}}
 %
 \def\@committeepage{
     \begin{center}
+    \vspace*{1.5cm}
     {\bfseries
     \ifenglishcommitteepage
     	BSc THESIS
@@ -402,6 +404,7 @@ publications}\gdef\@lopfileinternal{#1}}
     \linebreak\linebreak\linebreak
     \linebreak\linebreak\linebreak
     \linebreak\linebreak\linebreak
+    \linebreak\linebreak
     \end{center}
 
     {
