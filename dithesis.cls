@@ -108,6 +108,12 @@ National and Kapodistrian University of Athens]
 \newif\ifappendixstarted
 \appendixstartedfalse
 
+% controls whether we want to print dual-page or single page
+% when enabled, the page numbering will occur in the centre of the page
+% otherwise, it will occur at the right
+\newif\ifdualpage
+\dualpagefalse
+
 %
 % Check passed options
 %
@@ -122,6 +128,9 @@ National and Kapodistrian University of Athens]
 }
 \DeclareOption{lop}{
   \loppagetrue
+}
+\DeclareOption{dualpage}{
+  \dualpagetrue
 }
 
 
@@ -659,7 +668,11 @@ publications}\gdef\@lopfileinternal{#1}}
 %\pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LEO]{{\scriptsize \@titleEn{}}}
+\ifdualpage
+\fancyfoot[C]{{\scriptsize \thepage}}
+\else
 \fancyfoot[R]{{\scriptsize \thepage}}
+\fi
 \fancyfoot[LE,LO]{{\scriptsize \@authorFirstAbrEn{} \@authorLastEn{}}}
 
 % needed redefinition, because commands like \chapter call
@@ -667,7 +680,11 @@ publications}\gdef\@lopfileinternal{#1}}
 \fancypagestyle{plain} {
   \fancyhf{}
   \fancyhead[LO]{{\scriptsize \@titleEn{}}}
+  \ifdualpage
+  \fancyfoot[C]{{\scriptsize \thepage}}
+  \else
   \fancyfoot[R]{{\scriptsize \thepage}}
+  \fi
   \fancyfoot[LE,LO]{{\scriptsize \@authorFirstAbrEn{} \@authorLastEn{}}}
 }
 \renewcommand{\headrulewidth}{0pt}
