@@ -669,9 +669,9 @@ publications}\gdef\@lopfileinternal{#1}}
 \fancyhf{}
 \fancyhead[LEO]{{\scriptsize \@titleEn{}}}
 \ifdualpage
-\fancyfoot[C]{{\scriptsize \thepage}}
+\fancyfoot[C]{{\fontsize{10pt}{10pt}\selectfont \thepage}}
 \else
-\fancyfoot[R]{{\scriptsize \thepage}}
+\fancyfoot[R]{{\fontsize{10pt}{10pt}\selectfont \thepage}}
 \fi
 \fancyfoot[LE,LO]{{\scriptsize \@authorFirstAbrEn{} \@authorLastEn{}}}
 
@@ -681,9 +681,9 @@ publications}\gdef\@lopfileinternal{#1}}
   \fancyhf{}
   \fancyhead[LO]{{\scriptsize \@titleEn{}}}
   \ifdualpage
-  \fancyfoot[C]{{\scriptsize \thepage}}
+  \fancyfoot[C]{{\fontsize{10pt}{10pt}\selectfont \thepage}}
   \else
-  \fancyfoot[R]{{\scriptsize \thepage}}
+  \fancyfoot[R]{{\fontsize{10pt}{10pt}\selectfont \thepage}}
   \fi
   \fancyfoot[LE,LO]{{\scriptsize \@authorFirstAbrEn{} \@authorLastEn{}}}
 }
