@@ -180,7 +180,6 @@ headsep=0.5cm,footskip=0.75cm,
                                             % correctly rendering double quotes
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 \setsansfont[Mapping=tex-text,Scale=MatchLowercase]{Arial}
-\usepackage{cmbright}  % Use a sans serif font for math mode
 
 %\ifglossaryInPreamble
 %\RequirePackage[toc,section=chapter,numberedsection=false,nonumberlist]{glossaries}
