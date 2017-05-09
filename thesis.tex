@@ -18,6 +18,8 @@
 \usepackage{hyperref}
 \usepackage{lipsum}
 \usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \hypersetup{
     unicode=true,                     % non-Latin characters in bookmarks
     pdffitwindow=true,                % page fit to window when opened
@@ -83,6 +85,10 @@
 % Abstract, synopsis, inscription, ack, and preface pages.
 %
 \abstractEn{
+  \begin{align*}
+    G \leftarrow A_1 \land \dots \land A_n \\
+    \mathsf{G \leftarrow A_1 \land \dots \land A_n}
+  \end{align*}
 \begin{greek}
 Η περίληψη, η επιστημονική περιοχή και οι λέξεις κλειδιά στα Αγγλικά. Δεν θα πρέπει να υπερβαίνει τη μία σελίδα.
 \end{greek}

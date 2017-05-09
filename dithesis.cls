@@ -180,6 +180,8 @@ headsep=0.5cm,footskip=0.75cm,
                                             % correctly rendering double quotes
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 \setsansfont[Mapping=tex-text,Scale=MatchLowercase]{Arial}
+\setmathsf{CMU Bright}
+\setmathrm{CMU Bright}
 
 %\ifglossaryInPreamble
 %\RequirePackage[toc,section=chapter,numberedsection=false,nonumberlist]{glossaries}
