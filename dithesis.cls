@@ -157,6 +157,7 @@ headsep=0.5cm,footskip=0.75cm,
 \RequirePackage{tabularx}  % needed for tabular* environment
 \RequirePackage{longtable} % needed for splitting big tables across pages
 \RequirePackage{xifthen}
+\RequirePackage[caption=false]{subfig}
 
 %(e.g., abbreviations)
 %\RequirePackage[toc,page,titletoc]{appendix} % needed for configuring
@@ -535,6 +536,53 @@ publications}\gdef\@lopfileinternal{#1}}
   \thispagestyle{empty}
   \clearpage
 }
+
+
+%%
+%% Format of Table of Contents, List of Figures and List of Tables.
+%% (Adapted from dithesis.cls made by Yannis Mantzouratos <mantzouratos@gmail.com>)
+%%
+\RequirePackage{titletoc}
+\RequirePackage[subfigure,titles]{tocloft}
+
+% Table of Contents
+\let\oldtableofcontents\tableofcontents
+\DeclareRobustCommand{\tableofcontents}{
+  \newpage
+  \pagestyle{empty}
+  \oldtableofcontents
+  \clearpage
+  \pagestyle{fancy}
+}
+
+% place dots between each section and the respective page number
+\renewcommand{\cftsecleader}{\bfseries\cftdotfill{\cftdotsep}}
+% place dots between each subsection and the respective page number
+\renewcommand{\cftsubsecleader}{\bfseries\cftdotfill{\cftdotsep}}
+
+% place a dot after each chapter number
+\renewcommand{\cftchapaftersnum}{.}
+
+% section entries should be 10 pt and bold
+\renewcommand{\cftsecfont}{\fontsize{10pt}{12pt}\selectfont\bfseries}
+% subsection entries should be 10 pt
+\renewcommand{\cftsubsecfont}{\fontsize{10pt}{12pt}\selectfont}
+% subsubsection entries should be 10 pt
+\renewcommand{\cftsubsubsecfont}{\fontsize{10pt}{12pt}\selectfont}
+
+% sections should not be indented, whereas subsections and subsubsections should
+\setlength\cftsubsubsecindent\cftsubsecindent
+\setlength\cftsubsecindent\cftsecindent
+\setlength{\cftsecindent}{0pt}
+
+% sections should have the same vertical space with chapters
+\setlength\cftbeforesecskip\cftbeforechapskip
+
+% space between chapters and numbering in case of double digit numbers
+\newlength{\tocbinnumwidth}
+\settowidth{\tocbinnumwidth}{9}
+\addtolength{\cftchapnumwidth}{\tocbinnumwidth}
+
 
 %
 % Configure the frontmatter page
