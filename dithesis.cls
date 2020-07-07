@@ -158,6 +158,12 @@ headsep=0.5cm,footskip=0.75cm,
 \RequirePackage{longtable} % needed for splitting big tables across pages
 \RequirePackage{xifthen}
 \RequirePackage[caption=false]{subfig}
+\RequirePackage[%
+  font={footnotesize, bf},
+  justification=centering,
+  labelsep=colon,
+  figureposition=bottom,
+  tableposition=top]{caption} % captions
 
 %(e.g., abbreviations)
 %\RequirePackage[toc,page,titletoc]{appendix} % needed for configuring
