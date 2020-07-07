@@ -446,9 +446,13 @@ publications}\gdef\@lopfileinternal{#1}}
   \@abstractEn{}
   \vfill
 
-  {\bfseries SUBJECT AREA}: \@subjectAreaEn\\
+  \begin{tabularx}{\textwidth}{l X}
+    {\bfseries SUBJECT AREA:}  & \@subjectAreaEn
+  \end{tabularx}
 
-  {\bfseries KEYWORDS}: \@keywordsEn
+  \begin{tabularx}{\textwidth}{l X}
+    {\bfseries KEYWORDS:}  & \@keywordsEn
+  \end{tabularx}
 }
 
 %
@@ -462,9 +466,13 @@ publications}\gdef\@lopfileinternal{#1}}
   \end{greek}
   \vfill
 
-  {\bfseries ΘΕΜΑΤΙΚΗ ΠΕΡΙΟΧΗ}: \@subjectAreaGr\\
+  \begin{tabularx}{\textwidth}{l X}
+    {\bfseries ΘΕΜΑΤΙΚΗ ΠΕΡΙΟΧΗ:}  & \@subjectAreaGr
+  \end{tabularx}
 
-  {\bfseries ΛΕΞΕΙΣ ΚΛΕΙΔΙΑ}: \@keywordsGr
+  \begin{tabularx}{\textwidth}{l X}
+    {\bfseries ΛΕΞΕΙΣ ΚΛΕΙΔΙΑ:}  & \@keywordsGr
+  \end{tabularx}
 }
 
 %
