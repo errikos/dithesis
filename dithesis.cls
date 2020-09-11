@@ -170,6 +170,8 @@ headsep=0.5cm,footskip=0.75cm,
 \usepackage{xltxtra}
 \usepackage{polyglossia}
 \newfontfamily\greekfont[Script=Greek]{Arial}
+\newfontfamily\greekfontsf[Script=Greek]{Arial}
+\newfontfamily\greekfonttt[Script=Greek]{Arial}
 \setdefaultlanguage[variant=uk]{english}
 \setotherlanguage{greek}
 
