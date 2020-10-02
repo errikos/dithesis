@@ -6,6 +6,7 @@
 %
 % Copyright (c) 2014, 2015 Charalampos S. Nikolaou <charnik@di.uoa.gr>
 %                     2017 Ergys Dona <errikosd@gmail.com>
+%                     2020 Giorgos Katsogiannis <geo.katsogiannis@gmail.com>
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License. The latest version of this license is in
@@ -47,6 +48,11 @@
 %
 
 % Document Versions
+%
+% Version 1.3, 2020/10/02
+%   Added some corrections to match the department's official formatting requirements.
+%   Changes were applied to the acronyms table, the bibliography size, the table of
+%   contents, the captions of figures and tables and the abstract page's keywords.
 %
 % Version 1.2, 2017/02/26
 %   Refactored the document to allow it to be used to write BSc Theses.
