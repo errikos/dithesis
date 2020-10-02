@@ -116,8 +116,8 @@
 %
 \subjectAreaGr{Θεματική Περιοχή}
 \subjectAreaEn{Subject Area}
-\keywordsGr{Λέξη κλειδί1, λέξη κλειδί2, λέξη κλειδί3}
-\keywordsEn{Keyword1, keyword2, keyword3}
+\keywordsGr{Λέξη κλειδί1, λέξη κλειδί2, λέξη κλειδί3, λέξη κλειδί4, λέξη κλειδί5, λέξη κλειδί6}
+\keywordsEn{Keyword1, keyword2, keyword3, keyword4, keyword5, keyword6, keyword7}
 
 %
 % Set the .bib file containing your paper publications (leave the extension out)
@@ -280,12 +280,38 @@
 
 \chapter{BACKGROUND AND RELATED WORK}
   \lipsum[4-7]
+  \begin{figure}
+    \centering
+    \includegraphics{emblems/athena-black}
+    \caption{The emblem picturing Athena}
+    \label{athena}
+  \end{figure}
 
 \chapter{ANOTHER CHAPTER}
   \lipsum[10-20]
 
+  \begin{table}
+    \centering
+
+    \caption{Some numbers in a table}
+    \label{numbers}
+
+    \begin{tabular}{| c | c |}
+      \hline
+      1 & one \\
+      \hline
+      2 & two \\
+      \hline
+      3 & three \\
+      \hline
+    \end{tabular}
+
+  \end{table}
+
 \chapter{CONCLUSIONS AND FUTURE WORK}
   \lipsum[3-5]
+  One reference to some paper \cite{manning:corenlp} and to another paper
+  \cite{pennington:glove}.
 
 \backmatter
 
@@ -293,13 +319,16 @@
 \abbreviations
 \begin{center}
 	\renewcommand{\arraystretch}{1.5}
-	\begin{longtable}{ l @{\qquad} l }
-	\toprule
+	\begin{longtable}{| l | @{\qquad} l |}
+	\hline
 	RDF    & Resource Description Framework \\
+  \hline
 	SPARQL & SPARQL Protocol and RDF Query Language \\
+  \hline
 	OWL    & Web Ontology Language \\
+  \hline
 	OGC    & Open Geospatial Consortium \\
-	\bottomrule
+	\hline
 	\end{longtable}
 \end{center}
 
@@ -319,7 +348,8 @@
 
 % manually include the bibliography
 \bibliographystyle{plain}
-\bibliography{references}
+{\footnotesize \bibliography{references}}
+
 % include it also in ToC (do sth on your own)
 \addcontentsline{toc}{chapter}{REFERENCES}
 

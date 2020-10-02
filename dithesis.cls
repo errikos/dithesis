@@ -6,6 +6,7 @@
 %
 % Copyright (c) 2014, 2015 Charalampos S. Nikolaou <charnik@di.uoa.gr>
 %                     2017 Ergys Dona <errikosd@gmail.com>
+%                     2020 Giorgos Katsogiannis <geo.katsogiannis@gmail.com>
 %
 % This work may be distributed and/or modified under the conditions of the
 % LaTeX Project Public License. The latest version of this license is in
@@ -47,6 +48,11 @@
 %
 
 % Document Versions
+%
+% Version 1.3, 2020/10/02
+%   Added some corrections to match the department's official formatting requirements.
+%   Changes were applied to the acronyms table, the bibliography size, the table of
+%   contents, the captions of figures and tables and the abstract page's keywords.
 %
 % Version 1.2, 2017/02/26
 %   Refactored the document to allow it to be used to write BSc Theses.
@@ -157,6 +163,13 @@ headsep=0.5cm,footskip=0.75cm,
 \RequirePackage{tabularx}  % needed for tabular* environment
 \RequirePackage{longtable} % needed for splitting big tables across pages
 \RequirePackage{xifthen}
+\RequirePackage[caption=false]{subfig}
+\RequirePackage[%
+  font={footnotesize, bf},
+  justification=centering,
+  labelsep=colon,
+  figureposition=bottom,
+  tableposition=top]{caption} % captions
 
 %(e.g., abbreviations)
 %\RequirePackage[toc,page,titletoc]{appendix} % needed for configuring
@@ -448,9 +461,13 @@ publications}\gdef\@lopfileinternal{#1}}
   \@abstractEn{}
   \vfill
 
-  {\bfseries SUBJECT AREA}: \@subjectAreaEn\\
+  \begin{tabularx}{\textwidth}{l X}
+    {\bfseries SUBJECT AREA:}  & \@subjectAreaEn
+  \end{tabularx}
 
-  {\bfseries KEYWORDS}: \@keywordsEn
+  \begin{tabularx}{\textwidth}{l X}
+    {\bfseries KEYWORDS:}  & \@keywordsEn
+  \end{tabularx}
 }
 
 %
@@ -464,9 +481,13 @@ publications}\gdef\@lopfileinternal{#1}}
   \end{greek}
   \vfill
 
-  {\bfseries ΘΕΜΑΤΙΚΗ ΠΕΡΙΟΧΗ}: \@subjectAreaGr\\
+  \begin{tabularx}{\textwidth}{l X}
+    {\bfseries ΘΕΜΑΤΙΚΗ ΠΕΡΙΟΧΗ:}  & \@subjectAreaGr
+  \end{tabularx}
 
-  {\bfseries ΛΕΞΕΙΣ ΚΛΕΙΔΙΑ}: \@keywordsGr
+  \begin{tabularx}{\textwidth}{l X}
+    {\bfseries ΛΕΞΕΙΣ ΚΛΕΙΔΙΑ:}  & \@keywordsGr
+  \end{tabularx}
 }
 
 %
@@ -529,6 +550,53 @@ publications}\gdef\@lopfileinternal{#1}}
   \thispagestyle{empty}
   \clearpage
 }
+
+
+%%
+%% Format of Table of Contents, List of Figures and List of Tables.
+%% (Adapted from dithesis.cls made by Yannis Mantzouratos <mantzouratos@gmail.com>)
+%%
+\RequirePackage{titletoc}
+\RequirePackage[subfigure,titles]{tocloft}
+
+% Table of Contents
+\let\oldtableofcontents\tableofcontents
+\DeclareRobustCommand{\tableofcontents}{
+  \newpage
+  \pagestyle{empty}
+  \oldtableofcontents
+  \clearpage
+  \pagestyle{fancy}
+}
+
+% place dots between each section and the respective page number
+\renewcommand{\cftsecleader}{\bfseries\cftdotfill{\cftdotsep}}
+% place dots between each subsection and the respective page number
+\renewcommand{\cftsubsecleader}{\bfseries\cftdotfill{\cftdotsep}}
+
+% place a dot after each chapter number
+\renewcommand{\cftchapaftersnum}{.}
+
+% section entries should be 10 pt and bold
+\renewcommand{\cftsecfont}{\fontsize{10pt}{12pt}\selectfont\bfseries}
+% subsection entries should be 10 pt
+\renewcommand{\cftsubsecfont}{\fontsize{10pt}{12pt}\selectfont}
+% subsubsection entries should be 10 pt
+\renewcommand{\cftsubsubsecfont}{\fontsize{10pt}{12pt}\selectfont}
+
+% sections should not be indented, whereas subsections and subsubsections should
+\setlength\cftsubsubsecindent\cftsubsecindent
+\setlength\cftsubsecindent\cftsecindent
+\setlength{\cftsecindent}{0pt}
+
+% sections should have the same vertical space with chapters
+\setlength\cftbeforesecskip\cftbeforechapskip
+
+% space between chapters and numbering in case of double digit numbers
+\newlength{\tocbinnumwidth}
+\settowidth{\tocbinnumwidth}{9}
+\addtolength{\cftchapnumwidth}{\tocbinnumwidth}
+
 
 %
 % Configure the frontmatter page
